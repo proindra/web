@@ -1,10 +1,19 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-// import './App.css'
 import Hyperspeed from './Hyperspeed';
 
 function App() {
+  const [currentPage, setCurrentPage] = useState('home');
+
+  // Check URL hash to determine which page to show
+  const hash = window.location.hash.slice(1);
+  if (hash === 'about' && currentPage !== 'about') {
+    setCurrentPage('about');
+  }
+
+  if (currentPage === 'about') {
+    return <AboutPage />;
+  }
+
   return (
     <>
       <Hyperspeed

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/index.css">
+</head>
+<body>
+    <header>
+        <img class="logo" src="../logos/logo.svg" alt="Logo">
+        <nav class="navbar">
+            <ul class="list">
+                <li><a class="links" href="../index.html">Home</a></li>
+                <li><a class="links" href="about.html">About</a></li>
+                <li><a class="links" href="projects.html">Projects</a></li>
+                <li><a class="links" href="social.html">Social Media</a></li>
+                <li><a class="links" href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a class="links" href="#">Vibe X ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://proindra.github.io/vibexpdfmerger/" target="_blank">PDF Merger</a></li>
+                        <li><a href="https://proindra.github.io/vibexmarkdowneditor/" target="_blank">Markdown Editor</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="projects-hero">
+            <h1 class="projects-title">My Projects</h1>
+            <p class="projects-subtitle">Showcasing Innovation & Creativity</p>
+        </section>
+
+        <section class="projects-grid">
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-placeholder">🔧</div>
+                </div>
+                <div class="project-content">
+                    <h3>PDF Merger Tool</h3>
+                    <p>A web-based tool for merging multiple PDF files into one. Built with modern web technologies for seamless user experience.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML5</span>
+                        <span class="tech-tag">CSS3</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://proindra.github.io/vibexpdfmerger/" target="_blank" class="btn">Live Demo</a>
+                        <a href="#" class="btn">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-placeholder">📝</div>
+                </div>
+                <div class="project-content">
+                    <h3>Markdown Editor</h3>
+                    <p>Real-time markdown editor with live preview. Perfect for documentation and content creation with syntax highlighting.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Markdown</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://proindra.github.io/vibexmarkdowneditor/" target="_blank" class="btn">Live Demo</a>
+                        <a href="#" class="btn">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-placeholder">🌐</div>
+                </div>
+                <div class="project-content">
+                    <h3>Portfolio Website</h3>
+                    <p>Modern responsive portfolio website with interactive animations and smooth user experience. Built with cutting-edge technologies.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Vite</span>
+                        <span class="tech-tag">CSS3</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn">Live Demo</a>
+                        <a href="#" class="btn">GitHub</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <div class="project-placeholder">⚡</div>
+                </div>
+                <div class="project-content">
+                    <h3>Web Application</h3>
+                    <p>Full-stack web application with modern architecture, user authentication, and real-time features for enhanced productivity.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                        <span class="tech-tag">Express</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn">Live Demo</a>
+                        <a href="#" class="btn">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PRAJWALINDRA</h3>
+                <p>proindra</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="https://github.com/proindra" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/prajwalindra-h-7b2841319/" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 proindra. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .projects-hero {
+            padding: clamp(60px, 10vw, 120px) clamp(20px, 4vw, 40px);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            margin: clamp(20px, 3vw, 40px) 0;
+        }
+
+        .projects-title {
+            font-size: clamp(36px, 8vw, 80px);
+            background: linear-gradient(135deg, #ffff00, #0eb9ed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .projects-subtitle {
+            font-size: clamp(18px, 3vw, 28px);
+            color: #c0c0c0;
+            font-weight: 300;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 40px);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 0, 0.3);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, rgba(14, 185, 237, 0.1), rgba(255, 255, 0, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-placeholder {
+            font-size: 60px;
+            opacity: 0.7;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        .project-content h3 {
+            color: #ffff00;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .project-content p {
+            color: #c0c0c0;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .tech-tag {
+            background: rgba(14, 185, 237, 0.1);
+            border: 1px solid #0eb9ed;
+            color: #0eb9ed;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-links .btn {
+            padding: 10px 20px;
+            font-size: 14px;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            
+            .project-links {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>
