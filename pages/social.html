@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media - Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../src/index.css">
+</head>
+<body>
+    <header>
+        <img class="logo" src="../logos/logo.svg" alt="Logo">
+        <nav class="navbar">
+            <ul class="list">
+                <li><a class="links" href="../home.html">Home</a></li>
+                <li><a class="links" href="about.html">About</a></li>
+                <li><a class="links" href="projects.html">Projects</a></li>
+                <li><a class="links" href="social.html">Social Media</a></li>
+                <li><a class="links" href="contact.html">Contact</a></li>
+                <li class="dropdown">
+                    <a class="links" href="#">Vibe X ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://proindra.github.io/vibexpdfmerger/" target="_blank">PDF Merger</a></li>
+                        <li><a href="https://proindra.github.io/vibexmarkdowneditor/" target="_blank">Markdown Editor</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="social-hero">
+            <h1 class="social-title">Connect With Me</h1>
+            <p class="social-subtitle">Follow My Journey Across Platforms</p>
+        </section>
+
+        <section class="social-grid">
+            <div class="social-card">
+                <div class="social-icon">🐙</div>
+                <h3>GitHub</h3>
+                <p>Check out my code repositories, open source contributions, and development projects.</p>
+                <a href="https://github.com/proindra" target="_blank" class="btn">Visit GitHub</a>
+            </div>
+
+            <div class="social-card">
+                <div class="social-icon">💼</div>
+                <h3>LinkedIn</h3>
+                <p>Connect with me professionally and see my career journey and achievements.</p>
+                <a href="https://www.linkedin.com/in/prajwalindra-h-7b2841319/" target="_blank" class="btn">Visit LinkedIn</a>
+            </div>
+
+            <div class="social-card">
+                <div class="social-icon">🐦</div>
+                <h3>Twitter</h3>
+                <p>Follow me for tech updates, thoughts on development, and industry insights.</p>
+                <a href="#" target="_blank" class="btn">Visit Twitter</a>
+            </div>
+
+            <div class="social-card">
+                <div class="social-icon">📧</div>
+                <h3>Email</h3>
+                <p>Reach out directly for collaborations, opportunities, or just to say hello.</p>
+                <a href="mailto:prajwalindra@example.com" class="btn">Send Email</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>PRAJWALINDRA</h3>
+                <p>proindra</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="https://github.com/proindra" target="_blank">GitHub</a>
+                    <a href="https://www.linkedin.com/in/prajwalindra-h-7b2841319/" target="_blank">LinkedIn</a>
+                    <a href="#" target="_blank">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 proindra. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: white;
+            min-height: 100vh;
+        }
+
+        .social-hero {
+            padding: clamp(60px, 10vw, 120px) clamp(20px, 4vw, 40px);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            margin: clamp(20px, 3vw, 40px) 0;
+        }
+
+        .social-title {
+            font-size: clamp(36px, 8vw, 80px);
+            background: linear-gradient(135deg, #ffff00, #0eb9ed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .social-subtitle {
+            font-size: clamp(18px, 3vw, 28px);
+            color: #c0c0c0;
+            font-weight: 300;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 40px);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .social-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 0, 0.3);
+        }
+
+        .social-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        .social-card h3 {
+            color: #ffff00;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .social-card p {
+            color: #c0c0c0;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .social-card .btn {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .social-grid {
+                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+        }
+    </style>
+</body>
+</html>
