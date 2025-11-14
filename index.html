@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Portfolio Website</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -89,18 +89,18 @@
         borderRadius: '8px',
         border: '1px solid rgba(255,255,0,0.3)',
         items: [
-          { type: 'text', content: '🚀 Innovation' },
-          { type: 'text', content: '💡 Creativity' },
-          { type: 'text', content: '🎯 Focus' },
-          { type: 'text', content: '⚡ Performance' },
-          { type: 'text', content: '🔧 Development' },
-          { type: 'text', content: '🎨 Design' },
-          { type: 'text', content: '📱 Responsive' },
-          { type: 'text', content: '🌟 Excellence' },
-          { type: 'text', content: '🔥 Passion' },
-          { type: 'text', content: '💻 Coding' },
-          { type: 'text', content: '🎪 Fun' },
-          { type: 'text', content: '🚀 Innovation' }
+          { type: 'text', content: ' Innovation' },
+          { type: 'text', content: ' Creativity' },
+          { type: 'text', content: ' Focus' },
+          { type: 'text', content: ' Performance' },
+          { type: 'text', content: ' Development' },
+          { type: 'text', content: ' Design' },
+          { type: 'text', content: ' Responsive' },
+          { type: 'text', content: ' Excellence' },
+          { type: 'text', content: ' Passion' },
+          { type: 'text', content: ' Coding' },
+          { type: 'text', content: ' Fun' },
+          { type: 'text', content: ' Innovation' }
         ]
       };
     }
@@ -113,10 +113,24 @@
   <script type="module" src="/src/main.jsx"></script>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+    }
+
     body {
       background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
       color: white;
       min-height: 100vh;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow-x: hidden;
     }
 
     /* Enhanced UI/UX Improvements */
