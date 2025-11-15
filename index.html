@@ -26,14 +26,6 @@
         <li><a class="links" href="pages/projects.html">Projects</a></li>
         <li><a class="links" href="pages/social.html">Social Media</a></li>
         <li><a class="links" href="pages/contact.html">Contact</a></li>
-        <li class="dropdown">
-          <a class="links" href="#">Vibe X ▼</a>
-          <ul class="dropdown-menu">
-            <li><a href="https://proindra.github.io/vibexpdfmerger/" target="_blank">PDF Merger</a></li>
-            <li><a href="https://proindra.github.io/vibexmarkdowneditor/" target="_blank">Markdown
-                Editor</a></li>
-          </ul>
-        </li>
       </ul>
     </nav>
   </header>
@@ -46,7 +38,7 @@
         <div class="two">I'm a &lt;<b>title.</b><span class="auto-type"></span>... /&gt;</div>
         <div class="btn-group">
           <button class="btn">Download Resume</button>
-          <button class="btn">Visit Github</button>
+          <a href="https://github.com/proindra" target="_blank" class="btn">Visit Github</a>
         </div>
       </div>
       <div class="right-intro">
@@ -76,7 +68,7 @@
       const isTablet = window.innerWidth <= 768 && window.innerWidth > 480;
       
       return {
-        cardBackground: 'linear-gradient(135deg, rgba(255,255,0,0.1), rgba(14,185,237,0.1))',
+        cardBackground: 'transparent',
         backgroundColor: 'transparent',
         fontWeight: 'bold',
         fontSize: isMobile ? '16px' : isTablet ? '18px' : '20px',
@@ -86,8 +78,8 @@
         cardWidth: isMobile ? 150 : isTablet ? 175 : 200,
         gap: isMobile ? 10 : isTablet ? 12 : 15,
         speed: isMobile ? 12 : 15,
-        borderRadius: '8px',
-        border: '1px solid rgba(255,255,0,0.3)',
+        borderRadius: '0px',
+        border: 'none',
         items: [
           { type: 'text', content: ' Innovation' },
           { type: 'text', content: ' Creativity' },

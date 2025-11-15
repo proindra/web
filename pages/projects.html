@@ -21,13 +21,6 @@
                 <li><a class="links" href="projects.html">Projects</a></li>
                 <li><a class="links" href="social.html">Social Media</a></li>
                 <li><a class="links" href="contact.html">Contact</a></li>
-                <li class="dropdown">
-                    <a class="links" href="#">Vibe X ▼</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="https://proindra.github.io/vibexpdfmerger/" target="_blank">PDF Merger</a></li>
-                        <li><a href="https://proindra.github.io/vibexmarkdowneditor/" target="_blank">Markdown Editor</a></li>
-                    </ul>
-                </li>
             </ul>
         </nav>
     </header>
@@ -40,12 +33,9 @@
 
         <section class="projects-grid">
             <div class="project-card">
-                <div class="project-image">
-                    <div class="project-placeholder">🔧</div>
-                </div>
                 <div class="project-content">
-                    <h3>PDF Merger Tool</h3>
-                    <p>A web-based tool for merging multiple PDF files into one. Built with modern web technologies for seamless user experience.</p>
+                    <h3>VibeX PDF Merger</h3>
+                    <p>Cyberpunk PDF merger with advanced, serverless PDF merging and conversion, wrapped in a stunning glassmorphism UI with glitch effects.</p>
                     <div class="project-tech">
                         <span class="tech-tag">JavaScript</span>
                         <span class="tech-tag">HTML5</span>
@@ -53,64 +43,55 @@
                     </div>
                     <div class="project-links">
                         <a href="https://proindra.github.io/vibexpdfmerger/" target="_blank" class="btn">Live Demo</a>
-                        <a href="#" class="btn">GitHub</a>
+                        <a href="https://github.com/proindra/vibexpdfmerger" target="_blank" class="btn">GitHub</a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
-                <div class="project-image">
-                    <div class="project-placeholder">📝</div>
-                </div>
                 <div class="project-content">
-                    <h3>Markdown Editor</h3>
-                    <p>Real-time markdown editor with live preview. Perfect for documentation and content creation with syntax highlighting.</p>
+                    <h3>VibeX Markdown Editor</h3>
+                    <p>OneNote-like markdown editor with Google Auth syncing and robust offline support. Never lose a thought with advanced organization features.</p>
                     <div class="project-tech">
-                        <span class="tech-tag">React</span>
                         <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">Google Auth</span>
                         <span class="tech-tag">Markdown</span>
                     </div>
                     <div class="project-links">
                         <a href="https://proindra.github.io/vibexmarkdowneditor/" target="_blank" class="btn">Live Demo</a>
-                        <a href="#" class="btn">GitHub</a>
+                        <a href="https://github.com/proindra/vibexmarkdowneditor" target="_blank" class="btn">GitHub</a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
-                <div class="project-image">
-                    <div class="project-placeholder">🌐</div>
-                </div>
                 <div class="project-content">
-                    <h3>Portfolio Website</h3>
-                    <p>Modern responsive portfolio website with interactive animations and smooth user experience. Built with cutting-edge technologies.</p>
+                    <h3>Unity MiniBounce Game</h3>
+                    <p>Complete game built with just two C# scripts. Features movement, platforming, and respawn system using minimal code architecture.</p>
                     <div class="project-tech">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Vite</span>
-                        <span class="tech-tag">CSS3</span>
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Unity</span>
+                        <span class="tech-tag">ASP.NET</span>
                     </div>
                     <div class="project-links">
                         <a href="#" class="btn">Live Demo</a>
-                        <a href="#" class="btn">GitHub</a>
+                        <a href="https://github.com/proindra/UNITY-MiniBounce-GAME" target="_blank" class="btn">GitHub</a>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
-                <div class="project-image">
-                    <div class="project-placeholder">⚡</div>
-                </div>
                 <div class="project-content">
-                    <h3>Web Application</h3>
-                    <p>Full-stack web application with modern architecture, user authentication, and real-time features for enhanced productivity.</p>
+                    <h3>ScrollCarousel.js</h3>
+                    <p>Lightweight, customizable JavaScript library for creating smooth scrolling carousels. Available as CDN with responsive design and easy integration.</p>
                     <div class="project-tech">
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
-                        <span class="tech-tag">Express</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CDN</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="btn">Live Demo</a>
-                        <a href="#" class="btn">GitHub</a>
+                        <a href="https://proindra.github.io/scrollcarousel.js/" target="_blank" class="btn">Live Demo</a>
+                        <a href="https://github.com/proindra/scrollcarousel.js" target="_blank" class="btn">GitHub</a>
                     </div>
                 </div>
             </div>
@@ -277,15 +258,11 @@
         }
 
         body {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%) fixed;
             color: white;
             min-height: 100vh;
-        }
-
-        body {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
-            color: white;
-            min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
         .projects-hero {
@@ -312,39 +289,46 @@
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            gap: 40px;
             padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 40px);
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 25px;
             overflow: hidden;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 0, 0.05), rgba(14, 185, 237, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
         }
 
         .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 0, 0.3);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 255, 0, 0.1);
+            border-color: rgba(255, 255, 0, 0.4);
         }
 
-        .project-image {
-            height: 200px;
-            background: linear-gradient(135deg, rgba(14, 185, 237, 0.1), rgba(255, 255, 0, 0.1));
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .project-card:hover::before {
+            opacity: 1;
         }
 
-        .project-placeholder {
-            font-size: 60px;
-            opacity: 0.7;
-        }
+
 
         .project-content {
             padding: 25px;
