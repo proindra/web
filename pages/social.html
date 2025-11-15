@@ -21,13 +21,6 @@
                 <li><a class="links" href="projects.html">Projects</a></li>
                 <li><a class="links" href="social.html">Social Media</a></li>
                 <li><a class="links" href="contact.html">Contact</a></li>
-                <li class="dropdown">
-                    <a class="links" href="#">Vibe X ▼</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="https://proindra.github.io/vibexpdfmerger/" target="_blank">PDF Merger</a></li>
-                        <li><a href="https://proindra.github.io/vibexmarkdowneditor/" target="_blank">Markdown Editor</a></li>
-                    </ul>
-                </li>
             </ul>
         </nav>
     </header>
@@ -40,28 +33,24 @@
 
         <section class="social-grid">
             <div class="social-card">
-                <div class="social-icon">🐙</div>
                 <h3>GitHub</h3>
                 <p>Check out my code repositories, open source contributions, and development projects.</p>
                 <a href="https://github.com/proindra" target="_blank" class="btn">Visit GitHub</a>
             </div>
 
             <div class="social-card">
-                <div class="social-icon">💼</div>
                 <h3>LinkedIn</h3>
                 <p>Connect with me professionally and see my career journey and achievements.</p>
                 <a href="https://www.linkedin.com/in/prajwalindra-h-7b2841319/" target="_blank" class="btn">Visit LinkedIn</a>
             </div>
 
             <div class="social-card">
-                <div class="social-icon">🐦</div>
                 <h3>Twitter</h3>
                 <p>Follow me for tech updates, thoughts on development, and industry insights.</p>
                 <a href="#" target="_blank" class="btn">Visit Twitter</a>
             </div>
 
             <div class="social-card">
-                <div class="social-icon">📧</div>
                 <h3>Email</h3>
                 <p>Reach out directly for collaborations, opportunities, or just to say hello.</p>
                 <a href="mailto:prajwalindra@example.com" class="btn">Send Email</a>
@@ -214,6 +203,18 @@
         document.addEventListener('DOMContentLoaded', () => {
             const canvas = document.getElementById('floating-lines-canvas');
             new FloatingLinesBackground(canvas);
+            
+            // Staggered animation for social cards
+            const socialCards = document.querySelectorAll('.social-card');
+            socialCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(50px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
         });
     </script>
 
@@ -228,9 +229,11 @@
             pointer-events: none;
         }
         body {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%) fixed;
             color: white;
             min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
         .social-hero {
@@ -256,48 +259,90 @@
 
         .social-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
             padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 40px);
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
         .social-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 25px;
+            padding: 45px 35px;
             text-align: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 0, 0.05), rgba(14, 185, 237, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 1;
         }
 
         .social-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 0, 0.3);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 255, 0, 0.1);
+            border-color: rgba(255, 255, 0, 0.4);
         }
 
-        .social-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
+        .social-card:hover::before {
+            opacity: 1;
         }
+
+
 
         .social-card h3 {
             color: #ffff00;
-            font-size: 28px;
-            margin-bottom: 15px;
+            font-size: clamp(24px, 4vw, 32px);
+            margin-bottom: 18px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #ffff00, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 2;
         }
 
         .social-card p {
-            color: #c0c0c0;
-            line-height: 1.6;
-            margin-bottom: 25px;
+            color: #d0d0d0;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            font-size: clamp(14px, 2vw, 16px);
+            position: relative;
+            z-index: 2;
         }
 
         .social-card .btn {
             margin: 0;
+            padding: 14px 28px;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            z-index: 2;
+            background: transparent;
+            border: none;
+            color: #0eb9ed;
+            text-decoration: none;
+        }
+
+
+
+        .social-card .btn:hover {
+            transform: translateY(-3px);
+            color: #ffff00;
         }
 
         @media (max-width: 768px) {

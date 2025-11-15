@@ -21,14 +21,6 @@
                 <li><a class="links" href="projects.html">Projects</a></li>
                 <li><a class="links" href="social.html">Social Media</a></li>
                 <li><a class="links" href="contact.html">Contact</a></li>
-                <li class="dropdown">
-                    <a class="links" href="#">Vibe X ▼</a>
-                    <ul class="dropdown-menu">
-                        <li><a href="https://proindra.github.io/vibexpdfmerger/" target="_blank">PDF Merger</a></li>
-                        <li><a href="https://proindra.github.io/vibexmarkdowneditor/" target="_blank">Markdown
-                                Editor</a></li>
-                    </ul>
-                </li>
             </ul>
         </nav>
     </header>
@@ -133,29 +125,7 @@
             </div>
         </section>
 
-        <section class="projects-section">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                    <div class="project-card">
-                        <h3>Restaurant Seat Booking System</h3>
-                        <p class="project-tech">Python • Tkinter • CSV • GUI Application</p>
-                        <p>Desktop application for managing restaurant reservations with intuitive GUI interface.</p>
-                    </div>
-                    
-                    <div class="project-card">
-                        <h3>Travel Destination Finder</h3>
-                        <p class="project-tech">Python • Tkinter • CSV • Filtering</p>
-                        <p>Smart travel recommendation system with preference-based filtering capabilities.</p>
-                    </div>
-                    
-                    <div class="project-card">
-                        <h3>Restaurant Booking Web App</h3>
-                        <p class="project-tech">Python • Streamlit • CSV</p>
-                        <p>Web-based restaurant booking platform with modern interface and data management.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+
     </main>
 
     <footer>
@@ -318,9 +288,11 @@
         }
 
         body {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%) fixed;
             color: white;
             min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
         .about-hero {
@@ -475,56 +447,7 @@
             line-height: 1.6;
         }
 
-        .projects-section {
-            padding: clamp(40px, 6vw, 80px) clamp(20px, 4vw, 40px);
-            max-width: 1200px;
-            margin: 0 auto;
-        }
 
-        .projects-section h2 {
-            color: #ffff00;
-            font-size: clamp(28px, 5vw, 42px);
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .project-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 0, 0.2);
-            border-radius: 15px;
-            padding: 25px;
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-5px);
-            border-color: #0eb9ed;
-            box-shadow: 0 10px 30px rgba(14, 185, 237, 0.2);
-        }
-
-        .project-card h3 {
-            color: #ffff00;
-            font-size: clamp(18px, 3vw, 22px);
-            margin-bottom: 10px;
-        }
-
-        .project-tech {
-            color: #0eb9ed;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-
-        .project-card p:last-child {
-            color: #c0c0c0;
-            line-height: 1.6;
-        }
 
         @media (max-width: 768px) {
             .about-grid {
