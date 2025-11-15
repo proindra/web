@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../src/index.css">
 </head>
 <body>
+    <canvas id="floating-lines-canvas"></canvas>
+
     <header>
         <img class="logo" src="../logos/logo.svg" alt="Logo">
         <nav class="navbar">
@@ -47,7 +49,6 @@
                             <p>prajwalindrakh@gmail.com</p>
                         </div>
                     </div>
-                    
                     <div class="contact-item">
                         <div class="contact-icon">📱</div>
                         <div class="contact-details">
@@ -55,7 +56,6 @@
                             <p>+91 8762224656</p>
                         </div>
                     </div>
-                    
                     <div class="contact-item">
                         <div class="contact-icon">📍</div>
                         <div class="contact-details">
@@ -67,15 +67,9 @@
                     <div class="social-connect">
                         <h3>Connect With Me</h3>
                         <div class="social-buttons">
-                            <a href="https://github.com/proindra" target="_blank" class="social-btn">
-                                <span>GitHub</span>
-                            </a>
-                            <a href="https://www.linkedin.com/in/prajwalindra" target="_blank" class="social-btn">
-                                <span>LinkedIn</span>
-                            </a>
-                            <a href="#" target="_blank" class="social-btn">
-                                <span>Twitter</span>
-                            </a>
+                            <a href="https://github.com/proindra" target="_blank" class="social-btn">GitHub</a>
+                            <a href="https://www.linkedin.com/in/prajwalindra" target="_blank" class="social-btn">LinkedIn</a>
+                            <a href="#" target="_blank" class="social-btn">Twitter</a>
                         </div>
                     </div>
                 </div>
@@ -86,19 +80,15 @@
                         <div class="form-group">
                             <input type="text" placeholder="Your Name" required>
                         </div>
-                        
                         <div class="form-group">
                             <input type="email" placeholder="Your Email" required>
                         </div>
-                        
                         <div class="form-group">
                             <input type="text" placeholder="Subject" required>
                         </div>
-                        
                         <div class="form-group">
                             <textarea placeholder="Your Message" rows="6" required></textarea>
                         </div>
-                        
                         <button type="submit" class="btn submit-btn">Send Message</button>
                     </form>
                 </div>
@@ -134,7 +124,107 @@
         </div>
     </footer>
 
+    <script>
+        // Pixel Blast Background Effect
+        class PixelBlastBackground {
+            constructor(canvas) {
+                this.canvas = canvas;
+                this.ctx = canvas.getContext('2d');
+                this.particles = [];
+                this.mouse = { x: -1000, y: -1000 };
+                this.colors = ['#ffff00', '#0eb9ed', '#e947f5'];
+                this.resize();
+                this.setupEventListeners();
+                this.animate();
+            }
+
+            resize() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+            }
+
+            createParticle(x, y, color) {
+                return {
+                    x, y,
+                    vx: (Math.random() - 0.5) * 8,
+                    vy: (Math.random() - 0.5) * 8,
+                    life: 1,
+                    decay: Math.random() * 0.02 + 0.01,
+                    size: Math.random() * 3 + 1,
+                    color
+                };
+            }
+
+            setupEventListeners() {
+                window.addEventListener('resize', () => this.resize());
+                window.addEventListener('mousemove', (e) => {
+                    this.mouse.x = e.clientX;
+                    this.mouse.y = e.clientY;
+                    
+                    // Create pixel blast on mouse move
+                    for (let i = 0; i < 5; i++) {
+                        this.particles.push(this.createParticle(
+                            this.mouse.x + (Math.random() - 0.5) * 20,
+                            this.mouse.y + (Math.random() - 0.5) * 20,
+                            this.colors[Math.floor(Math.random() * this.colors.length)]
+                        ));
+                    }
+                });
+            }
+
+            animate() {
+                // Semi-transparent background for trail effect
+                this.ctx.fillStyle = 'rgba(10, 10, 10, 0.1)';
+                this.ctx.fillRect(0, 0, this.canvas.width, this.canvas.height);
+
+                // Update and draw particles
+                this.particles = this.particles.filter(particle => {
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    particle.life -= particle.decay;
+                    particle.vx *= 0.98;
+                    particle.vy *= 0.98;
+
+                    if (particle.life > 0) {
+                        this.ctx.globalAlpha = particle.life;
+                        this.ctx.fillStyle = particle.color;
+                        this.ctx.fillRect(particle.x, particle.y, particle.size, particle.size);
+                        return true;
+                    }
+                    return false;
+                });
+
+                // Auto-generate ambient particles
+                if (Math.random() < 0.3) {
+                    this.particles.push(this.createParticle(
+                        Math.random() * this.canvas.width,
+                        Math.random() * this.canvas.height,
+                        this.colors[Math.floor(Math.random() * this.colors.length)]
+                    ));
+                }
+
+                this.ctx.globalAlpha = 1;
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('floating-lines-canvas');
+            new PixelBlastBackground(canvas);
+        });
+    </script>
+
     <style>
+        #floating-lines-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
         body {
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
             color: white;
@@ -144,9 +234,6 @@
         .contact-hero {
             padding: clamp(60px, 10vw, 120px) clamp(20px, 4vw, 40px);
             text-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            margin: clamp(20px, 3vw, 40px) 0;
         }
 
         .contact-title {
