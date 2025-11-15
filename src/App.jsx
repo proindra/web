@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Hyperspeed from './Hyperspeed';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState('home');
+  const [currentPage, setCurrentPage] = useState('main');
 
   // Check URL hash to determine which page to show
   const hash = window.location.hash.slice(1);
