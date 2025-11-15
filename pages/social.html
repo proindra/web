@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="../src/index.css">
 </head>
 <body>
+    <canvas id="floating-lines-canvas"></canvas>
+
     <header>
         <img class="logo" src="../logos/logo.svg" alt="Logo">
         <nav class="navbar">
@@ -95,7 +97,136 @@
         </div>
     </footer>
 
+    <script>
+        // Floating Lines Background (from about.html)
+        class FloatingLinesBackground {
+            constructor(canvas) {
+                this.canvas = canvas;
+                this.ctx = canvas.getContext('2d');
+                this.mouse = { x: -1000, y: -1000 };
+                this.time = 0;
+                this.resize();
+                this.setupEventListeners();
+                this.animate();
+            }
+
+            resize() {
+                this.canvas.width = window.innerWidth;
+                this.canvas.height = window.innerHeight;
+            }
+
+            setupEventListeners() {
+                window.addEventListener('resize', () => this.resize());
+                window.addEventListener('mousemove', (e) => {
+                    this.mouse.x = e.clientX;
+                    this.mouse.y = e.clientY;
+                });
+            }
+
+            wave(x, y, offset, mouseInfluence = true) {
+                const amp = Math.sin(offset + this.time * 0.2) * 0.3;
+                let waveY = Math.sin(x * 0.01 + offset + this.time * 0.1) * amp * 50;
+                
+                if (mouseInfluence) {
+                    const dx = x - this.mouse.x;
+                    const dy = y - this.mouse.y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    const influence = Math.exp(-distance * 0.005);
+                    waveY += (this.mouse.y - y) * influence * 0.5;
+                }
+                
+                return waveY;
+            }
+
+            drawWaves() {
+                const width = this.canvas.width;
+                const height = this.canvas.height;
+                
+                // Bottom waves
+                for (let i = 0; i < 20; i++) {
+                    this.ctx.beginPath();
+                    const gradient = this.ctx.createLinearGradient(0, 0, width, 0);
+                    gradient.addColorStop(0, 'rgba(233, 71, 245, 0)');
+                    gradient.addColorStop(0.5, 'rgba(233, 71, 245, 0.3)');
+                    gradient.addColorStop(1, 'rgba(233, 71, 245, 0)');
+                    this.ctx.strokeStyle = gradient;
+                    this.ctx.lineWidth = 2;
+                    
+                    const baseY = height * 0.8 + i * 5;
+                    this.ctx.moveTo(0, baseY);
+                    
+                    for (let x = 0; x <= width; x += 5) {
+                        const y = baseY + this.wave(x, baseY, 1.5 + 0.2 * i);
+                        this.ctx.lineTo(x, y);
+                    }
+                    this.ctx.stroke();
+                }
+                
+                // Middle waves
+                for (let i = 0; i < 15; i++) {
+                    this.ctx.beginPath();
+                    const gradient = this.ctx.createLinearGradient(0, 0, width, 0);
+                    gradient.addColorStop(0, 'rgba(14, 185, 237, 0)');
+                    gradient.addColorStop(0.5, 'rgba(14, 185, 237, 0.6)');
+                    gradient.addColorStop(1, 'rgba(14, 185, 237, 0)');
+                    this.ctx.strokeStyle = gradient;
+                    this.ctx.lineWidth = 2;
+                    
+                    const baseY = height * 0.5 + i * 6;
+                    this.ctx.moveTo(0, baseY);
+                    
+                    for (let x = 0; x <= width; x += 5) {
+                        const y = baseY + this.wave(x, baseY, 2.0 + 0.15 * i);
+                        this.ctx.lineTo(x, y);
+                    }
+                    this.ctx.stroke();
+                }
+                
+                // Top waves
+                for (let i = 0; i < 10; i++) {
+                    this.ctx.beginPath();
+                    const gradient = this.ctx.createLinearGradient(0, 0, width, 0);
+                    gradient.addColorStop(0, 'rgba(255, 255, 0, 0)');
+                    gradient.addColorStop(0.5, 'rgba(255, 255, 0, 0.4)');
+                    gradient.addColorStop(1, 'rgba(255, 255, 0, 0)');
+                    this.ctx.strokeStyle = gradient;
+                    this.ctx.lineWidth = 2;
+                    
+                    const baseY = height * 0.2 + i * 8;
+                    this.ctx.moveTo(0, baseY);
+                    
+                    for (let x = 0; x <= width; x += 5) {
+                        const y = baseY + this.wave(x, baseY, 1.0 + 0.2 * i);
+                        this.ctx.lineTo(x, y);
+                    }
+                    this.ctx.stroke();
+                }
+            }
+
+            animate() {
+                this.time += 0.016;
+                this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+                this.drawWaves();
+                requestAnimationFrame(() => this.animate());
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const canvas = document.getElementById('floating-lines-canvas');
+            new FloatingLinesBackground(canvas);
+        });
+    </script>
+
     <style>
+        #floating-lines-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
         body {
             background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
             color: white;
@@ -105,9 +236,6 @@
         .social-hero {
             padding: clamp(60px, 10vw, 120px) clamp(20px, 4vw, 40px);
             text-align: center;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            margin: clamp(20px, 3vw, 40px) 0;
         }
 
         .social-title {
