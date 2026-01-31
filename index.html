@@ -34,7 +34,11 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="hero-content">
-        <div class="one">Hi, I'm proindra</div>
+        <div class="profile-section">
+          <img src="profile-pic.png" alt="Prajwalindra" class="profile-pic">
+        </div>
+        <div class="one">Hi, I'm Prajwalindra</div>
+        <div class="description">B.Tech CSE (AI & ML) @ PES University | Exploring Artificial Intelligence, Machine Learning & Data Science 🚀</div>
         <div class="two">I'm a &lt;<b>title.</b><span class="auto-type"></span>... /&gt;</div>
         <div class="btn-group">
           <button class="btn">Download Resume</button>
@@ -143,6 +147,25 @@
       justify-content: center;
     }
 
+    .profile-section {
+      margin-bottom: 20px;
+    }
+
+    .profile-pic {
+      width: clamp(120px, 15vw, 180px);
+      height: clamp(120px, 15vw, 180px);
+      border-radius: 50%;
+      object-fit: cover;
+      border-image: linear-gradient(135deg, #0eb9ed, #ffff00) 1;
+      box-shadow: 0 8px 32px rgba(14, 185, 237, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .profile-pic:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 40px rgba(255, 255, 0, 0.4);
+    }
+
     .hero::before {
       content: '';
       position: absolute;
@@ -206,6 +229,17 @@
     .two {
       position: relative;
       margin-bottom: 10px;
+    }
+
+    .description {
+      font-size: clamp(14px, 2.5vw, 18px);
+      color: white;
+      text-align: center;
+      margin: 15px 0;
+      line-height: 1.4;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .auto-type {

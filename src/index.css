@@ -207,7 +207,7 @@ header {
     flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
-    padding: clamp(12px, 2vw, 20px) clamp(20px, 4vw, 40px);
+    padding: clamp(6px, 1.2vw, 10px) clamp(12px, 2.5vw, 20px);
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
     position: sticky;
@@ -219,17 +219,17 @@ header {
 
 .list {
     display: flex;
-    gap: clamp(12px, 2vw, 25px);
+    gap: clamp(10px, 1.8vw, 20px);
     list-style-type: none;
     color: white;
-    font-size: clamp(13px, 1.2vw, 16px);
+    font-size: clamp(13px, 1.1vw, 15px);
     align-items: center;
 }
 
 .logo {
-    width: clamp(80px, 10vw, 120px);
+    width: clamp(50px, 7vw, 75px);
     height: auto;
-    padding: 3px;
+    padding: 2px;
     cursor: pointer;
     max-width: 100%;
 }
@@ -238,8 +238,8 @@ header {
     text-decoration: none;
     color: #c0c0c0;
     position: relative;
-    padding: clamp(8px, 1.2vw, 12px) clamp(12px, 2vw, 16px);
-    border-radius: 8px;
+    padding: clamp(5px, 0.9vw, 8px) clamp(9px, 1.3vw, 12px);
+    border-radius: 7px;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     white-space: nowrap;
     font-weight: 500;
@@ -276,7 +276,8 @@ header {
 @media (max-width: 1200px) {
     header {
         flex-direction: column;
-        gap: 12px;
+        gap: 6px;
+        padding: clamp(4px, 1vw, 8px) clamp(8px, 2vw, 14px);
     }
 }
 
@@ -284,15 +285,15 @@ header {
     .list {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 15px;
+        gap: 6px;
         background: rgba(0, 0, 0, 0.9);
-        padding: 12px;
-        border-radius: 8px;
+        padding: 6px;
+        border-radius: 6px;
     }
 
     .links {
-        padding: clamp(10px, 2vw, 14px) clamp(16px, 3vw, 20px);
-        border-radius: 8px;
+        padding: clamp(6px, 1.2vw, 8px) clamp(8px, 2vw, 12px);
+        border-radius: 6px;
         border: 1px solid rgba(255, 255, 0, 0.2);
         margin: 0;
         width: 100%;
@@ -304,18 +305,18 @@ header {
 
 @media (max-width: 480px) {
     header {
-        padding: clamp(6px, 1.5vw, 10px);
+        padding: clamp(3px, 0.8vw, 6px);
     }
 
     .list {
         flex-direction: column;
-        gap: clamp(6px, 1vw, 10px);
-        padding: clamp(6px, 1vw, 10px);
+        gap: clamp(3px, 0.6vw, 6px);
+        padding: clamp(3px, 0.6vw, 6px);
     }
 
     .links {
-        font-size: clamp(14px, 3vw, 16px);
-        padding: clamp(6px, 1vw, 8px);
+        font-size: clamp(12px, 2.5vw, 14px);
+        padding: clamp(3px, 0.6vw, 5px);
     }
 }
 
