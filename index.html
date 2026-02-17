@@ -72,11 +72,11 @@
         cardBackground: 'transparent',
         backgroundColor: 'transparent',
         fontWeight: 'bold',
-        fontSize: isMobile ? '16px' : isTablet ? '18px' : '20px',
+        fontSize: isMobile ? '16px' : isTablet ? '18px' : '18px',
         pauseOnHover: false,
         direction: 'normal',
-        cardHeight: isMobile ? 50 : isTablet ? 55 : 60,
-        cardWidth: isMobile ? 150 : isTablet ? 175 : 200,
+        cardHeight: isMobile ? 50 : isTablet ? 55 : 55,
+        cardWidth: isMobile ? 150 : isTablet ? 175 : 175,
         gap: isMobile ? 10 : isTablet ? 12 : 15,
         speed: isMobile ? 12 : 15,
         borderRadius: '0px',
@@ -117,6 +117,7 @@
     }
 
     body {
+      background-color: black;
       color: white;
       min-height: 100vh;
       margin: 0;
@@ -151,8 +152,8 @@
     }
 
     .profile-pic {
-      width: clamp(100px, 12vw, 150px);
-      height: clamp(100px, 12vw, 150px);
+      width: clamp(100px, 10vw, 130px);
+      height: clamp(100px, 10vw, 130px);
       border-radius: 50%;
       object-fit: cover;
       border-image: linear-gradient(135deg, #0eb9ed, #ffff00) 1;
@@ -236,7 +237,7 @@
       text-align: center;
       margin: 15px 0;
       line-height: 1.4;
-      max-width: 600px;
+      max-width: 500px;
       margin-left: auto;
       margin-right: auto;
     }

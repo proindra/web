@@ -12,6 +12,7 @@ html {
 }
 
 body {
+    background-color: black;
     width: 100%;
     height: 100%;
 }
@@ -19,14 +20,14 @@ body {
 
 
 .one {
-    font-size: clamp(24px, 4vw, 50px);
+    font-size: clamp(24px, 3.5vw, 42px);
     color: yellow;
     font-weight: 700;
     text-align: center;
 }
 
 .two {
-    font-size: clamp(16px, 2.5vw, 28px);
+    font-size: clamp(16px, 2vw, 22px);
     color: white;
     text-align: center;
 }
@@ -42,7 +43,7 @@ body {
     border: 2px solid;
     border-image: linear-gradient(135deg, #0eb9ed, #ffff00) 1;
     color: #0eb9ed;
-    padding: clamp(10px, 1.5vw, 14px) clamp(20px, 3vw, 28px);
+    padding: clamp(8px, 1.2vw, 12px) clamp(16px, 2.5vw, 24px);
     text-align: center;
     text-decoration: none;
     font-size: clamp(14px, 1.2vw, 16px);
