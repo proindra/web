@@ -205,7 +205,6 @@ footer {
 /* Navbar Styles */
 header {
     display: flex;
-    flex-direction: row-reverse;
     align-items: center;
     justify-content: space-between;
     padding: clamp(6px, 1.2vw, 10px) clamp(12px, 2.5vw, 20px);
@@ -222,14 +221,6 @@ header {
     color: white;
     font-size: clamp(13px, 1.1vw, 15px);
     align-items: center;
-}
-
-.logo {
-    width: clamp(50px, 7vw, 75px);
-    height: auto;
-    padding: 2px;
-    cursor: pointer;
-    max-width: 100%;
 }
 
 .links {
