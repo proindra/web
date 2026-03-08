@@ -210,7 +210,7 @@ footer {
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     padding: clamp(6px, 1.2vw, 10px) clamp(12px, 2.5vw, 20px);
     background: transparent;
     position: sticky;
