@@ -44,6 +44,7 @@
           <a href="https://github.com/proindra" target="_blank" class="btn">Visit Github</a>
         </div>
       </div>
+      <div class="scroll-indicator"></div>
     </section>
 
     <!-- Skills Carousel -->
@@ -125,71 +126,128 @@
       font-family: 'Roboto', sans-serif;
     }
 
-    /* Enhanced UI/UX Improvements */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes pulse-ring {
+      0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(14, 185, 237, 0.7);
+      }
+      70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 20px rgba(14, 185, 237, 0);
+      }
+      100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(14, 185, 237, 0);
+      }
+    }
+
     .hero {
       position: relative;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      min-height: 80vh;
+      min-height: 85vh;
       padding: clamp(20px, 4vw, 40px);
     }
 
     .hero-content {
       width: 100%;
+      max-width: 800px;
       text-align: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      animation: fadeInUp 0.8s ease-out;
     }
 
     .profile-section {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      animation: float 3s ease-in-out infinite;
     }
 
     .profile-pic {
-      width: clamp(100px, 10vw, 130px);
-      height: clamp(100px, 10vw, 130px);
+      width: clamp(120px, 12vw, 150px);
+      height: clamp(120px, 12vw, 150px);
       border-radius: 50%;
       object-fit: cover;
-      border-image: linear-gradient(135deg, #0eb9ed, #ffff00) 1;
-      box-shadow: 0 8px 32px rgba(14, 185, 237, 0.3);
-      transition: all 0.3s ease;
+      border: 4px solid transparent;
+      background: linear-gradient(#000, #000) padding-box,
+                  linear-gradient(135deg, #0eb9ed, #ffff00) border-box;
+      box-shadow: 0 10px 40px rgba(14, 185, 237, 0.4),
+                  0 0 0 0 rgba(14, 185, 237, 0.7);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: pulse-ring 2s infinite;
     }
 
     .profile-pic:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 40px rgba(255, 255, 0, 0.4);
+      transform: scale(1.08) rotate(5deg);
+      box-shadow: 0 15px 50px rgba(255, 255, 0, 0.5),
+                  0 0 30px rgba(14, 185, 237, 0.6);
+      animation: none;
     }
 
     .hero::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: rgba(255, 255, 255, 0.02);
-      backdrop-filter: blur(20px);
-      border-radius: 20px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      height: 85%;
+      background: radial-gradient(circle, rgba(14, 185, 237, 0.05) 0%, transparent 70%);
+      backdrop-filter: blur(30px);
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
       z-index: -1;
     }
 
     .btn-group {
       display: flex;
-      gap: 15px;
-      margin-top: 15px;
+      gap: 20px;
+      margin-top: 30px;
       justify-content: center;
+      flex-wrap: wrap;
     }
 
     .btn {
       position: relative;
       overflow: hidden;
       transform: translateY(0);
-      box-shadow: 0 8px 25px rgba(14, 185, 237, 0.2);
+      box-shadow: 0 10px 30px rgba(14, 185, 237, 0.3);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+      transition: left 0.5s;
+    }
+
+    .btn:hover::before {
+      left: 100%;
     }
 
     .btn::after {
@@ -199,10 +257,15 @@
       left: 50%;
       width: 0;
       height: 0;
-      background: radial-gradient(circle, rgba(255, 255, 0, 0.3) 0%, transparent 70%);
-      transition: all 0.6s ease;
+      background: radial-gradient(circle, rgba(255, 255, 0, 0.2) 0%, transparent 70%);
+      transition: all 0.5s ease;
       transform: translate(-50%, -50%);
       z-index: -1;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(255, 255, 0, 0.4);
     }
 
     .btn:hover::after {
@@ -211,48 +274,49 @@
     }
 
     .btn:active {
-      transform: translateY(2px);
-      box-shadow: 0 4px 15px rgba(14, 185, 237, 0.3);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 20px rgba(14, 185, 237, 0.4);
     }
-
-
 
     .one {
       position: relative;
       display: inline-block;
-      margin-bottom: 0px;
-      line-height: 1.1;
+      margin-bottom: 10px;
+      line-height: 1.2;
+      animation: fadeInUp 0.8s ease-out 0.2s both;
     }
 
     .two {
       position: relative;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      animation: fadeInUp 0.8s ease-out 0.4s both;
     }
 
     .description {
-      font-size: clamp(14px, 2vw, 16px);
-      color: white;
+      font-size: clamp(15px, 2.2vw, 18px);
+      color: rgba(255, 255, 255, 0.85);
       text-align: center;
-      margin: 15px 0;
-      line-height: 1.4;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 20px auto;
+      line-height: 1.6;
+      max-width: 600px;
+      padding: 0 20px;
+      animation: fadeInUp 0.8s ease-out 0.3s both;
     }
 
     .auto-type {
       position: relative;
+      display: inline-block;
     }
 
     .auto-type::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: -5px;
-      right: -5px;
-      bottom: 0;
-      background: rgba(0, 255, 136, 0.1);
-      border-radius: 5px;
+      top: -2px;
+      left: -8px;
+      right: -8px;
+      bottom: -2px;
+      background: rgba(154, 255, 0, 0.15);
+      border-radius: 6px;
       z-index: -1;
       opacity: 0;
       transition: opacity 0.3s ease;
@@ -260,6 +324,26 @@
 
     .auto-type:hover::before {
       opacity: 1;
+    }
+
+    .scroll-indicator {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: float 2s ease-in-out infinite;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
+
+    .scroll-indicator:hover {
+      opacity: 1;
+    }
+
+    .scroll-indicator::before {
+      content: '↓';
+      font-size: 24px;
+      color: #0eb9ed;
     }
 
     /* Enhanced Mobile Responsiveness */
