@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "predeploy": "npm run build && npm run copy-files",
     "deploy": "gh-pages -d dist",
-    "copy-files": "xcopy pages dist\\pages /E /I /Y && xcopy logos dist\\logos /E /I /Y && xcopy src dist\\src /E /I /Y"
+    "copy-files": "cp -r pages dist/ && cp -r logos dist/ && cp -r src dist/"
   },
   "dependencies": {
     "framer-motion": "^12.23.24",
