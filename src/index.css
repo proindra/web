@@ -225,39 +225,38 @@ header {
 
 .links {
     text-decoration: none;
-    color: #c0c0c0;
+    color: #a7aaae;
     position: relative;
-    padding: clamp(5px, 0.9vw, 8px) clamp(9px, 1.3vw, 12px);
-    border-radius: 7px;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: clamp(5px, 0.9vw, 8px) clamp(12px, 2vw, 20px);
+    border-radius: 10px;
+    transition: all 0.3s ease;
     white-space: nowrap;
-    font-weight: 500;
-    scroll-behavior: smooth;
+    font-weight: 600;
+    border: 1px solid transparent;
 }
 
 .links:hover {
-    color: #ffff00;
-    background: rgba(255, 255, 0, 0.1);
-    transform: translateY(-2px) scale(1.02);
+    color: #ffffff;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(255, 255, 0, 0.2);
 }
 
-.links::after {
+.links.active {
+    color: #ffffff;
+    background-color: #241333;
+    border: 1px solid #4d286f;
+}
+
+.links.active::after {
     content: "";
     position: absolute;
-    height: 2px;
-    background: linear-gradient(90deg, #0eb9ed, #ffff00);
-    width: 0;
+    width: 4px;
+    height: 4px;
+    background-color: #c084fc;
+    border-radius: 50%;
     left: 50%;
-    bottom: -6px;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    pointer-events: none;
+    bottom: 4px;
     transform: translateX(-50%);
-}
-
-.links:hover::after {
-    width: 100%;
+    pointer-events: none;
 }
 
 
